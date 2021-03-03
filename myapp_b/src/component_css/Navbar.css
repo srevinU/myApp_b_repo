@@ -1,3 +1,40 @@
-div .navbar {
-    background-color: aquamarine;
+.navbar {
+    background-color: rgb(40, 42, 43);
+    align-items: center;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 65px;
+    color: white;
 }
+
+.nav_logo {
+    display: flex;
+    width: 10%;
+    margin-left: 5%;
+}
+
+.nav_search_bar {
+    display: flex;
+    width: 50%;
+}
+
+.nav_search_bar .search_input {
+    width: 50%;
+    height: 25px;
+    outline: none;
+}
+
+.nav_search_logo {
+    display: flex;
+    color:  white;
+    cursor: pointer;
+    margin: auto 1%;
+}
+
+.logos {
+    width: 25px;
+    height: 25px;
+}
+
