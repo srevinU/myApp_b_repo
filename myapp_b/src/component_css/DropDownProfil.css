@@ -1,0 +1,12 @@
+.dropDownProfilDisplayed {
+    position: absolute;
+    padding:10%;
+    background-color: grey;
+    top: 65px;
+    left: 80%;
+    color: royalblue;
+}
+
+.dropDownProfilHid {
+   display: none;
+}
