@@ -12,13 +12,17 @@ function Navbar() {
   const [clickBasket, setClickBasket] = useState(false);
 
   
-  const logoOnClickProfilOption = () => {
-    setClickProfile(!clickProfile);
-  }
+  // const logoOnClickProfilOption = () => {
+  //   setClickProfile(!clickProfile);
+  // }
 
-  const logoOnClickBasketOption = () => {
-    setClickBasket(!setClickBasket);
-  }
+  // const logoOnClickBasketOption = () => {
+  //   setClickBasket(!setClickBasket);
+  // }
+
+  const logoOnClickOption = () => {
+      setClickProfile(!clickProfile);
+    }
   
     return (
       <div className="navbar">
@@ -36,12 +40,16 @@ function Navbar() {
 
         <div className="nav_options">
 
-        <BiBasket className="logos" id="basketLogo" onClick= {logoOnClickBasketOption}/>
-        <BiUserCircle className="logos" id="userLogo" onClick= {logoOnClickProfilOption}/>
+        
+        {/* <BiBasket className="logos" id="basketLogo" onClick= {logoOnClickBasketOption}/>
+        <BiUserCircle className="logos" id="userLogo" onClick= {logoOnClickProfilOption}/> */}
+
+        <BiBasket className="logos" id="basketLogo" onClick= {logoOnClickOption}/>
+        <BiUserCircle className="logos" id="userLogo" onClick= {logoOnClickOption}/>
         
         </div>
 
-        <DropDownProfil clicked={clickProfile}/>
+        <DropDownProfil clicked={clickProfile} from={"userLogo"}/>
 
       </div>
     );
