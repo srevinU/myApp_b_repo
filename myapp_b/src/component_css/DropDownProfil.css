@@ -1,12 +1,31 @@
 .dropDownProfilDisplayed {
-    position: absolute;
-    padding:10%;
-    background-color: grey;
+    position: fixed;
+    width: 8%;
+    height: 100%;
+    background-color: rgb(40, 42, 43);
     top: 65px;
-    left: 80%;
+    left: 92%;
     color: white;
+    transition: all 0.5s linear;
 }
 
 .dropDownProfilHid {
-   display: none;
+    position: fixed;
+    width: 8%;
+    height: 100%;
+    background-color: rgb(40, 42, 43);
+    top: 65px;
+    left: 105%;
+    color: white;
+    transition: all 0.5s linear;
+}
+
+ul {
+    list-style: none;
+    height: 100%;
+    margin-top: 50px;
+}
+
+li {
+    margin-bottom: 15px;
 }

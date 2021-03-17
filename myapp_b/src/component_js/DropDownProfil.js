@@ -3,46 +3,45 @@ import "../component_css/DropDownProfil.css"
 function DropDownProfil(props) {
 
 
-    let dropItems = null;
+    let dropItems = [];
 
-    switch (props.from) {
+    switch (props.clickedFrom) {
+
       case "basketLogo":
         
-        dropItems = [{"element" : "Hello"}, {"element" : "Bye"}];
+        dropItems = [
+          {"element" : "Hello"}, 
+          {"element" : "Bye"}];
 
         break;
 
       case "userLogo":
-
-        console.log("In the case")
-
-        dropItems = [{"element" : "Hello"}, {"element" : "Bye"}];
+        
+        dropItems = [
+        {"element" : "Your Profile", "display": true}, 
+        {"element" : "Your Orders", "display": false}, 
+        {"element" : "Contact Us", "display": true}, 
+        {"element" : "Log Out", "display": true}
+      ];
 
         break;
     
       default:
-
-        dropItems = [{"element" : "Hello"}, {"element" : "Bye"}];
-
+        console.warn("Component [DropDownProfil]: var 'props.from' Empty")
         break;
-    }
-
-    console.log(props.from);
-    console.log(dropItems);
-
-    dropItems.map((item) => {
-      console.log(item);
-    })
+    };
 
     return (
 
       <div className={ props.clicked ? "dropDownProfilDisplayed" : "dropDownProfilHid"}>
 
-        {
+        <ul>{
         dropItems.map(function (item, key) {
-          return <p key={key}>{item.element}</p>
+          if (item.display) {
+            return <li key={key}>{item.element}</li>
+          }
         })
-        }
+        }</ul>
         
       </div>
     );

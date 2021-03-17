@@ -4,24 +4,14 @@ import { BiSearchAlt, BiBasket, BiUserCircle } from 'react-icons/bi';
 import DropDownProfil from "./DropDownProfil";
 import "../component_css/DropDownProfil.css";
 
-
-
 function Navbar() {
 
-  const [clickProfile, setClickProfile] = useState(false);
-  const [clickBasket, setClickBasket] = useState(false);
-
+  const [logoCliked, setlogoCliked] = useState(false);
+  const [dropDownTriggeredBy, setdropDownTriggeredBy] = useState("");
   
-  // const logoOnClickProfilOption = () => {
-  //   setClickProfile(!clickProfile);
-  // }
-
-  // const logoOnClickBasketOption = () => {
-  //   setClickBasket(!setClickBasket);
-  // }
-
-  const logoOnClickOption = () => {
-      setClickProfile(!clickProfile);
+  const triggerDropDownOption = (logoId) => {
+      setdropDownTriggeredBy(logoId);
+      setlogoCliked(!logoCliked);
     }
   
     return (
@@ -39,17 +29,11 @@ function Navbar() {
         </div>
 
         <div className="nav_options">
-
-        
-        {/* <BiBasket className="logos" id="basketLogo" onClick= {logoOnClickBasketOption}/>
-        <BiUserCircle className="logos" id="userLogo" onClick= {logoOnClickProfilOption}/> */}
-
-        <BiBasket className="logos" id="basketLogo" onClick= {logoOnClickOption}/>
-        <BiUserCircle className="logos" id="userLogo" onClick= {logoOnClickOption}/>
-        
+          {/* <BiBasket className="logos" onClick= {() => triggerDropDownOption("basketLogo")}/> */}
+          <BiUserCircle className="logos" onClick= {() => triggerDropDownOption("userLogo")}/>        
         </div>
 
-        <DropDownProfil clicked={clickProfile} from={"userLogo"}/>
+        <DropDownProfil clicked={logoCliked} clickedFrom={dropDownTriggeredBy}/>
 
       </div>
     );
