@@ -1,0 +1,17 @@
+[{
+        "element": "Your Profile",
+        "display": true
+    },
+    {
+        "element": "Your Orders",
+        "display": false
+    },
+    {
+        "element": "Contact Us",
+        "display": true
+    },
+    {
+        "element": "Log Out",
+        "display": true
+    }
+]

@@ -1,0 +1,36 @@
+[{
+    "product_id": "AAAAAAAAAA",
+    "product_name": "Product A",
+    "product_price": "Price A",
+    "product_description": "Description A",
+    "product_stars": 3
+  },
+  {
+    "product_id": "BBBBBBBBBB",
+    "product_name": "Product B",
+    "product_price": "Price B",
+    "product_description": "Description B",
+    "product_stars": 3
+  },
+  {
+    "product_id": "CCCCCCCCCC",
+    "product_name": "Product C",
+    "product_price": "Price C",
+    "product_description": "Description C",
+    "product_stars": 3
+  },
+  {
+    "product_id": "DDDDDDDDDD",
+    "product_name": "Product D",
+    "product_price": "Price D",
+    "product_description": "Description D",
+    "product_stars": 3
+  },
+  {
+    "product_id": "EEEEEEEEEE",
+    "product_name": "Product E",
+    "product_price": "Price E",
+    "product_description": "Eescription E",
+    "product_stars": 3
+  }
+]

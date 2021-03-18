@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import "../component_css/Navbar.css";
-import { BiSearchAlt, BiBasket, BiUserCircle } from 'react-icons/bi';
+import { BiSearchAlt, /* BiBasket,*/ BiUserCircle } from 'react-icons/bi';
 import DropDownProfil from "./DropDownProfil";
 import "../component_css/DropDownProfil.css";
 
 function Navbar() {
 
   const [logoCliked, setlogoCliked] = useState(false);
-  const [dropDownTriggeredBy, setdropDownTriggeredBy] = useState("");
+  const [dropDownTriggeredBy, setdropDownTriggeredBy] = useState(null);
   
   const triggerDropDownOption = (logoId) => {
       setdropDownTriggeredBy(logoId);

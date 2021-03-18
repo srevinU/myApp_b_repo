@@ -1,33 +1,21 @@
 import "../component_css/DropDownProfil.css"
 
-function DropDownProfil(props) {
 
+function DropDownProfil(props) {
 
     let dropItems = [];
 
     switch (props.clickedFrom) {
 
       case "basketLogo":
-        
-        dropItems = [
-          {"element" : "Hello"}, 
-          {"element" : "Bye"}];
-
+        dropItems = require('../component_json/dropDown_profile_sample.json');
         break;
 
       case "userLogo":
-        
-        dropItems = [
-        {"element" : "Your Profile", "display": true}, 
-        {"element" : "Your Orders", "display": false}, 
-        {"element" : "Contact Us", "display": true}, 
-        {"element" : "Log Out", "display": true}
-      ];
-
+        dropItems = require('../component_json/dropDown_profile_sample.json');
         break;
     
       default:
-        console.warn("Component [DropDownProfil]: var 'props.from' Empty")
         break;
     };
 
@@ -39,6 +27,8 @@ function DropDownProfil(props) {
         dropItems.map(function (item, key) {
           if (item.display) {
             return <li key={key}>{item.element}</li>
+          } else {
+            return null;
           }
         })
         }</ul>

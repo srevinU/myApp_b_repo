@@ -1,0 +1,17 @@
+.home {
+    margin-top: 2.5%;
+    text-align: center;
+}
+
+.product_panel {
+    background-color: rgb(40, 42, 43);
+    display: inline-flex;
+    width: 10%;
+    height: 10%;
+    margin: 1%;
+    color: white;
+    
+}
+
+
+
