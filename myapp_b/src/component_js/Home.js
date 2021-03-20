@@ -2,13 +2,15 @@
 import "../component_css/Home.css";
 const jsonProductTest = require('../component_json/product_sample.json');
 
+const img = require("../img/galina-n-miziNqvJx5M-unsplash.jpg");
+
 function Home() {
 
   let newContent = [];
   let finalContent = [];
 
   jsonProductTest.forEach((element, index) => {
-    if (index !== 0 && index % 4 === 0) {
+    if (index !== 0 && index % 3 === 0) {
         finalContent.push(newContent);
         newContent = [element];
     } else {
@@ -18,23 +20,39 @@ function Home() {
 
   finalContent.push(newContent);
 
-  const content = finalContent.map((elementRow, indexElementRow) => { 
+  const content = finalContent.map((elementRow, indexElementRow) => {
     return <tr key={indexElementRow}>
       {
         elementRow.map((element, indexElement) => {
           return <td key={indexElement}>
-            {element.product_name}
+            <ul>
+                <li className= "product_name">{element.name}</li>
+                <li className="product_image">{element.image}
+                <img className="product_image" src="/img/galina-n-miziNqvJx5M-unsplash.jpg" alt="test" id="itemImg"/>
+                </li>
+                <li className="product_description">
+                  <p>{element.description}</p>
+                  </li>
+                <li className="product_stars">
+                  {element.stars}
+                  </li>
+                <li className="product_price">{element.price}</li>
+              </ul>
           </td>
         })
       }
+
     </tr>
+    
   })
 
   return (
    
-  <table>
-    <tbody>{content}</tbody>
-  </table>
+    <div className="home">
+      <table>
+        <tbody>{content}</tbody>
+      </table>
+  </div>
          
        
     
@@ -43,31 +61,3 @@ function Home() {
 }
   
   export default Home;
-
-
-
-
-
-      //   <tr> elementRow.map((element, index) => {
-      //     <td id={index}> {element.product_name} </td>
-      //     </tr>})
-      // })
-
-
-
-
-    //   <div className="home">
-    //     {
-    //     jsonProductTest.map(function (item, key) {
-    //         return <div className="product_panel" key={key}>
-    //          <ul>
-    //            <li>{item.product_id}</li>
-    //            <li>{item.product_name}</li>
-    //            <li>{item.product_price}</li>
-    //            <li>{item.product_description}</li>
-    //            <li>{item.product_stars}</li>
-    //          </ul>
-    //         </div>
-    //     })
-    //     }
-    //   </div>

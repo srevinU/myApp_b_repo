@@ -1,17 +1,40 @@
 .home {
-    margin-top: 2.5%;
-    text-align: center;
+    padding-top: 2%;
+    /* text-align: center; */
+    background-color: rgba(40, 42, 43, 0.76);
 }
 
-.product_panel {
-    background-color: rgb(40, 42, 43);
-    display: inline-flex;
-    width: 10%;
-    height: 10%;
-    margin: 1%;
-    color: white;
-    
+table {
+    margin: auto;
+    padding-top: 2%;
+    width: 80%;
 }
+
+td {
+    width: 20%;
+}
+
+table ul {
+    background-color: #fff;
+    border-radius: 2.5%;
+    color: rgb(40, 42, 43);
+    width: 80%;
+    border: 1px solid black;
+    padding: 10px;
+    height: 450px;
+    max-height: 450px;
+}
+
+li {
+    padding: 5px;  
+}
+
+.product_image {
+    /* height: 200px;
+    width: 250px; */
+    max-height: 200px;
+    max-width: 200px;
+  }
 
 
 

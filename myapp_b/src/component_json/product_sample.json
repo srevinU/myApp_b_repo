@@ -1,36 +1,82 @@
 [{
-    "product_id": "AAAAAAAAAA",
-    "product_name": "Product A",
-    "product_price": "Price A",
-    "product_description": "Description A",
-    "product_stars": 3
+    "type": "product",
+    "id": "AAAAAAAAAA",
+    "name": "Product A",
+    "price": "Price A",
+    "image": null,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.",
+    "stars": 3
   },
   {
-    "product_id": "BBBBBBBBBB",
-    "product_name": "Product B",
-    "product_price": "Price B",
-    "product_description": "Description B",
-    "product_stars": 3
+    "type": "product",
+    "id": "BBBBBBBBBB",
+    "name": "Product B",
+    "price": "Price B",
+    "image": null,
+    "description": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "stars": 3
   },
   {
-    "product_id": "CCCCCCCCCC",
-    "product_name": "Product C",
-    "product_price": "Price C",
-    "product_description": "Description C",
-    "product_stars": 3
+    "type": "product",
+    "id": "CCCCCCCCCC",
+    "name": "Product C",
+    "price": "Price C",
+    "image": null,
+    "description": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
+    "stars": 3
   },
   {
-    "product_id": "DDDDDDDDDD",
-    "product_name": "Product D",
-    "product_price": "Price D",
-    "product_description": "Description D",
-    "product_stars": 3
+    "type": "product",
+    "id": "DDDDDDDDDD",
+    "name": "Product D",
+    "price": "Price D",
+    "image": null,
+    "description": "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+    "stars": 3
   },
   {
-    "product_id": "EEEEEEEEEE",
-    "product_name": "Product E",
-    "product_price": "Price E",
-    "product_description": "Eescription E",
-    "product_stars": 3
+    "type": "product",
+    "pid": "FFFFFFFFFF",
+    "name": "Product D",
+    "price": "Price D",
+    "image": null,
+    "description": "Mauris at interdum libero. Vivamus a arcu at orci aliquam maximus vitae eget elit. Mauris et risus lectus. Morbi et dui interdum, porttitor mi id, lacinia quam. Donec volutpat justo quis urna euismod accumsan.",
+    "stars": 3
+  },
+  {
+    "type": "product",
+    "id": "FFFFFFFFFF",
+    "name": "Product F",
+    "price": "Price F",
+    "image": null,
+    "description": "Donec rutrum libero accumsan, pellentesque nunc at, aliquam quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus in diam eu libero dictum luctus.",
+    "stars": 3
+  },
+  {
+    "type": "product",
+    "id": "GGGGGGGG",
+    "name": "Product G",
+    "price": "Price G",
+    "image": null,
+    "description": "In hac habitasse platea dictumst. In quis nisl id magna tempus aliquam. Phasellus velit neque, pretium eu ante ut, auctor vehicula nisi. Sed sed hendrerit enim, a ullamcorper est.",
+    "stars": 3
+  },
+  {
+    "type": "product",
+    "id": "HHHHHHHHHH",
+    "name": "Product H",
+    "price": "Price H",
+    "image": null,
+    "description": "Duis et odio finibus, dignissim dui malesuada, tempus erat. Vestibulum aliquet scelerisque bibendum. Ut tellus ipsum, aliquet id feugiat a, fermentum in ligula.",
+    "stars": 3
+  },
+  {
+    "type": "product",
+    "id": "IIIIIIIIII",
+    "name": "Product I",
+    "price": "Price I",
+    "image": null,
+    "description": "Mauris et risus lectus. Morbi et dui interdum, porttitor mi id, lacinia quam. Donec volutpat justo quis urna euismod accumsan. Nulla placerat in metus ut iaculis.",
+    "stars": 3
   }
 ]
