@@ -2,7 +2,6 @@
 import "../component_css/Home.css";
 const jsonProductTest = require('../component_json/product_sample.json');
 
-const img = require("../img/galina-n-miziNqvJx5M-unsplash.jpg");
 
 function Home() {
 
