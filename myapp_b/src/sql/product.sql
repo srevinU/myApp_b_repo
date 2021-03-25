@@ -1,0 +1,12 @@
+
+
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+ALTER TABLE products
+	ADD COLUMN u_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+	ADD COLUMN u_type VARCHAR(70) DEFAULT 'To be define',
+	ADD COLUMN u_name VARCHAR(70),
+	ADD COLUMN u_price NUMERIC NOT NULL DEFAULT 0.00,
+	ADD COLUMN u_image_url VARCHAR(255),
+	ADD COLUMN u_description VARCHAR(250),
+	ADD COLUMN u_stars INT;
