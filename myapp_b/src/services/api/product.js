@@ -6,7 +6,7 @@ const product = express();
 // Request Body
 product.use(express.json())
 
-product.post("/todo", async (request, response) => {
+product.post("/poduct/post", async (request, response) => {
   let result;
   
   try {
