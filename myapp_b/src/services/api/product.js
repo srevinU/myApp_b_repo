@@ -2,10 +2,17 @@ const express = require("express");
 const pool = require("../utils/db.js");
 const queries = require("../utils/productQueries.js");
 const product = express();
-const port = 3000;
+const port = 3001;
+
 
 // Request Body
 product.use(express.json())
+product.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
+  next();
+});
 
 product.post("/poduct/post", async (request, response) => {
   let result;
@@ -29,36 +36,27 @@ product.post("/poduct/post", async (request, response) => {
   }
 })
 
-
-
-const getUser = function () {
-
-  return new(Promise)(async () => {
-    let result;
-
-    try {
-
-      result = await pool.query(queries.SELECT_ALL);
-
-      console.log(result.rows);
-
-      return result.rows;
-
-    } catch (err) {
-
-      console.error(err.message);
-
-    }
-
-  })
+const getProduct = () => {
+  return new Promise(function(resolve, reject) {
+    pool.query(queries.SELECT_ALL, (error, results) => {
+      if (error) {
+        reject(error)
+      }
+      resolve(results.rows);
+    })
+  }) 
 }
 
-
-const dataProductInDb = getUser();
-
-console.log(dataProductInDb);
-
-
+product.get('/', (req, res) => {
+  console.log("From product.get: " + JSON.stringify(getProduct()))
+  getProduct()
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
 
 product.listen(port, () => {
   console.log(`App running on port ${port}.`)

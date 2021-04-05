@@ -1,9 +1,34 @@
-// import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+
 import "../component_css/Home.css";
-const jsonProductTest = require('../component_json/product_sample.json');
+const jsonProductTest = require("../component_json/product_sample.json");
+
 
 
 function Home() {
+
+  useEffect(() => {
+    console.log(getProduct());
+  }, []);
+
+
+function getProduct() {
+  fetch('http://localhost:3001')
+    .then(response => {
+      console.log(response);
+      return response.text();
+    })
+    .then(data => {
+      console.log(data)
+      // setMerchants(data);
+    });}
+  
+
+
+
+
+
+
 
   let newContent = [];
   let finalContent = [];
