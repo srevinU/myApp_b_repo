@@ -4,7 +4,6 @@ const queries = require("../utils/productQueries.js");
 const product = express();
 const port = 3001;
 
-
 // Request Body
 product.use(express.json())
 product.use(function (req, res, next) {
@@ -14,11 +13,11 @@ product.use(function (req, res, next) {
   next();
 });
 
+// Post
 product.post("/poduct/post", async (request, response) => {
   let result;
   
   try {
-
     let param = [
       request.body.u_type,
       request.body.u_name,
@@ -26,7 +25,6 @@ product.post("/poduct/post", async (request, response) => {
       request.body.u_description,
       request.body.u_stars 
     ]
-
     result = await pool.query(queries.INSERT, param)
     response.json(result);
     return response.status(200).json(result.rows);
@@ -36,19 +34,8 @@ product.post("/poduct/post", async (request, response) => {
   }
 })
 
-const getProduct = () => {
-  return new Promise(function(resolve, reject) {
-    pool.query(queries.SELECT_ALL, (error, results) => {
-      if (error) {
-        reject(error)
-      }
-      resolve(results.rows);
-    })
-  }) 
-}
-
+// Get
 product.get('/', (req, res) => {
-  console.log("From product.get: " + JSON.stringify(getProduct()))
   getProduct()
   .then(response => {
     res.status(200).send(response);
@@ -61,3 +48,14 @@ product.get('/', (req, res) => {
 product.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
+
+const getProduct = () => {
+  return new Promise(function(resolve, reject) {
+    pool.query(queries.SELECT_ALL, (error, results) => {
+      if (error) {
+        reject(error)
+      }
+      resolve(results.rows);
+    })
+  }) 
+}
