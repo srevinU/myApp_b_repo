@@ -1,13 +1,13 @@
 .home {
-    padding-top: 2%;
-    /* text-align: center; */
-    background-color: rgba(40, 42, 43, 0.76);
+    height: 1300px;
+    background-color: rgba(105, 107, 107);
 }
 
 table {
-    margin: auto;
-    padding-top: 2%;
-    width: 80%;
+    background-color: rgba(105, 107, 107);
+    width: 100%;
+    padding: 2%;
+    text-align: center;
 }
 
 td {
@@ -19,6 +19,9 @@ table ul {
     border-radius: 2.5%;
     color: rgb(40, 42, 43);
     width: 80%;
+
+    max-width: 600px;
+
     border: 1px solid black;
     padding: 10px;
     height: 450px;
@@ -31,8 +34,6 @@ li {
 }
 
 .product_image {
-    /* height: 200px;
-    width: 250px; */
     max-height: 200px;
     max-width: 200px;
   }

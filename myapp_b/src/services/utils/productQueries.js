@@ -1,5 +1,5 @@
 const queries = {
-    SELECT_ALL: 'SELECT * FROM products;',
+    SELECT_ALL: 'SELECT * FROM products WHERE u_active = TRUE;',
     INSERT: 'INSERT INTO products (u_type, u_name, u_price, u_description, u_stars) '+
             'VALUES ($1, $2, $3, $4, $5);',
     UPDATE: 'UPDATE ??.?? '+

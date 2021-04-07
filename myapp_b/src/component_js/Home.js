@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import "../component_css/Home.css";
-const jsonProduct = require("../component_json/product_sample.json");
 
 function Home() {
 
@@ -14,13 +13,14 @@ function Home() {
         return response.json();
       })
       .then(data => {
+        console.table(data);
         setProducts(data);
       });}  
 
+  function generateProductTableList(productArr) {
     let newContent = [];
     let finalContent = [];
-
-    products.forEach((element, index) => {
+    productArr.forEach((element, index) => {
       if (index !== 0 && index % 3 === 0) {
           finalContent.push(newContent);
           newContent = [element];
@@ -28,7 +28,6 @@ function Home() {
           newContent.push(element);
       }
     });
-  
     finalContent.push(newContent);
 
     const content = finalContent.map((elementRow, indexElementRow) => {
@@ -54,12 +53,17 @@ function Home() {
         }
       </tr>
     })
+    return content;
+  }
+
+    
+    
 
     return (
     
       <div className="home">
         <table>
-          <tbody>{content}</tbody>
+          <tbody>{generateProductTableList(products)}</tbody>
         </table>
     </div>
           

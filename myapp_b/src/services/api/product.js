@@ -14,20 +14,20 @@ product.use(function (req, res, next) {
 });
 
 // Post
-product.post("/poduct/post", async (request, response) => {
+product.post("/poduct/post", async (req, res) => {
   let result;
   
   try {
     let param = [
-      request.body.u_type,
-      request.body.u_name,
-      request.body.u_price,
-      request.body.u_description,
-      request.body.u_stars 
+      req.body.u_type,
+      req.body.u_name,
+      req.body.u_price,
+      req.body.u_description,
+      req.body.u_stars 
     ]
     result = await pool.query(queries.INSERT, param)
-    response.json(result);
-    return response.status(200).json(result.rows);
+    res.json(result);
+    return res.status(200).json(result.rows);
 
   } catch (err) {
     console.error(err.message);
@@ -45,17 +45,17 @@ product.get('/', (req, res) => {
   })
 })
 
-product.listen(port, () => {
-  console.log(`App running on port ${port}.`)
-})
-
 const getProduct = () => {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     pool.query(queries.SELECT_ALL, (error, results) => {
       if (error) {
-        reject(error)
+        reject(error.message)
       }
       resolve(results.rows);
     })
   }) 
 }
+
+product.listen(port, () => {
+  console.log(`App running on port ${port}.`)
+})
