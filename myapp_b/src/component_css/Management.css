@@ -1,0 +1,19 @@
+.page_management {
+    height: 1300px;
+    background-color: rgba(105, 107, 107);
+}
+
+.sections_management {
+    width: 50%;
+    height: 1000px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.section {
+    background-color: black;
+    width: 350px;
+    height: 250px;
+    margin: 20px;
+    display: flex;
+}

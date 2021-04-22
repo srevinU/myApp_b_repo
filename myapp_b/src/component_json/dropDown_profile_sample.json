@@ -1,17 +1,30 @@
-[{
+[
+    {
+        "element": "Home",
+        "display": true,
+        "path": "http://localhost:3000/"
+    },{
         "element": "Your Profile",
-        "display": true
+        "display": true,
+        "path": "http://localhost:3000/profile"
+    },{
+        "element": "Management",
+        "display": true,
+        "path": "http://localhost:3000/management"
     },
     {
         "element": "Your Orders",
-        "display": false
+        "display": true,
+        "path": "http://localhost:3000/orders"
     },
     {
         "element": "Contact Us",
-        "display": true
+        "display": true,
+        "path": "http://localhost:3000/contact"
     },
     {
         "element": "Log Out",
-        "display": true
+        "display": true,
+        "path": "http://localhost:3000/logout"
     }
 ]
