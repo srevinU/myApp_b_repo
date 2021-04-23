@@ -1,19 +1,38 @@
 .page_management {
-    height: 1300px;
+    height: 100%;
     background-color: rgba(105, 107, 107);
 }
 
 .sections_management {
-    width: 50%;
-    height: 1000px;
-    display: inline-flex;
+    width: 90%;
+    height: 100%;
+    display: flex;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section {
-    background-color: black;
+    background-color: white;
     width: 350px;
     height: 250px;
     margin: 20px;
     display: flex;
+    border-radius: 2.5%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+:root {
+    height: 100%;
+}
+
+body {
+    height: 100%;
 }
