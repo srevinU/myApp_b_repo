@@ -1,0 +1,12 @@
+
+.management_products {
+    height: 1300px;
+    background-color: rgba(105, 107, 107);
+}
+
+table {
+    background-color: rgba(105, 107, 107);
+    width: 100%;
+    padding: 2%;
+    text-align: center;
+}

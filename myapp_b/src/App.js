@@ -8,6 +8,7 @@ import Contact from './component_js/Contact';
 import Management from './component_js/Management';
 import Profile from './component_js/Profile';
 import Orders from './component_js/Orders';
+import ManagementProducts from './component_js/ManagementProducts'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/management" component={Management} />
         <Route exact path="/orders" component={Orders} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/management/products" component={ManagementProducts} />
       </Router>
     </div>
   );

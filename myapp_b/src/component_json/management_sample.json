@@ -1,0 +1,15 @@
+[
+    {
+        "element": "Products",
+        "display": true,
+        "path": "http://localhost:3000/management/products"
+    },{
+        "element": "Clients",
+        "display": true,
+        "path": "http://localhost:3000/management/Clients"
+    },{
+        "element": "DashBoard",
+        "display": true,
+        "path": "http://localhost:3000/management/DashBoard"
+    }
+]
