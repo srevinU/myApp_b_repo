@@ -1,12 +1,14 @@
 
 .management_products {
-    height: 1300px;
+    height: 100%;
+    width: 100%;
     background-color: rgba(105, 107, 107);
+    
 }
 
-table {
-    background-color: rgba(105, 107, 107);
+.table_products {
     width: 100%;
     padding: 2%;
-    text-align: center;
+    display: block;
+    
 }
