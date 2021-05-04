@@ -2,13 +2,88 @@
 .management_products {
     height: 100%;
     width: 100%;
-    background-color: rgba(105, 107, 107);
+    /* background-color: rgba(105, 107, 107); */
+    background-color: white;
     
 }
 
 .table_products {
-    width: 100%;
+    width: 50%;
     padding: 2%;
-    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border: none;
+    border-spacing:0;
     
 }
+
+.table_products thead {
+    margin-bottom: 20px;
+}
+
+.table_products th {
+    color: white;
+    padding: 10px;
+    background-color: rgba(105, 107, 107);
+}
+
+.table_products tr:hover {
+    /* background-color:  rgba(105, 107, 107, 0.25); */
+    background-color: rgba(0, 135, 208, 0.431);
+}
+
+
+.table_products td {
+    padding: 10px;
+}
+
+.table_products input {
+    text-align: center;
+    padding: 10px;
+    border: transparent;
+    border-radius: 5px;
+    outline: none;
+}
+
+.table_products input[type="checkbox"] {
+    height: 15px;
+    width: 15px;
+  }
+
+/* .table_products input[type="file"] {
+  
+} */
+
+.btn_container {
+    text-align: center;
+}
+
+.btn_container button {
+    color: white;
+    text-transform: uppercase;
+    font-size: 12pt;
+    font-weight: bolder;
+    margin: 15px;
+    padding: 15px 100px;
+    background-color: rgba(0, 135, 208, 0.65);
+    border: transparent;
+    cursor: pointer;
+    border-radius: 2.5;
+    border-radius: 5px;
+}
+
+.btn_container button:hover {
+    color: white;
+    text-transform: uppercase;
+    font-size: 12pt;
+    font-weight: bolder;
+    margin: 15px;
+    padding: 15px 100px;
+    background-color: rgba(0, 135, 208, 0.431);
+    cursor: pointer;
+    border-radius: 2.5;
+    border: transparent;
+    border-radius: 5px;
+}
+

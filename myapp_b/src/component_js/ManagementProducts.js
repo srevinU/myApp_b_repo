@@ -4,7 +4,9 @@ import "../component_css/ManagementProducts.css";
 export default function ManagementProducts() {
 
     const [products, setProducts] = useState([]);
-    useEffect(() => {getProduct();}, []);
+    useEffect(() => {
+        getProduct();
+    }, []);
 
     function getProduct() {
         fetch('http://localhost:3001')
@@ -23,9 +25,6 @@ export default function ManagementProducts() {
     }
 
     function addProduct() {
-
-        // Issue with function, record not added to the sreen, only in json (DOM issue)
-        
         products.push({
             "u_type": "Created",
             "u_name": "",
@@ -40,7 +39,7 @@ export default function ManagementProducts() {
 
         });
         setProducts(products);
-        console.table(products);
+        // console.table(products); working fine, data added but not displayed in DOM
     }
 
     return (
@@ -72,16 +71,16 @@ export default function ManagementProducts() {
                     console.log(product.u_type + " to display");
                     return <tr key={index}> 
 
-                        <td> <input defaultValue={product.u_id} onChange={e => handleChange(e, "u_id", index)}/> </td> 
+                        <td> <input defaultValue={product.u_id} onChange={e => handleChange(e, "u_id", index)} readOnly={true}/> </td> 
                         <td> <input defaultValue={product.u_type} onChange={e => handleChange(e, "u_type", index)}/> </td> 
                         <td> <input defaultValue={product.u_name} onChange={e => handleChange(e, "u_name", index)}/> </td> 
                         <td> <input defaultValue={product.u_price} onChange={e => handleChange(e, "u_price", index)}/> </td> 
-                        <td> <input defaultValue={product.u_image_url} onChange={e => handleChange(e, "u_image_url", index)}/> </td>
+                        <td> <input defaultValue={product.u_image_url} type="file" onChange={e => handleChange(e, "u_image_url", index)}/> </td>
                         <td> <input defaultValue={product.u_description} onChange={e => handleChange(e, "u_description", index)}/> </td>
                         <td> <input defaultValue={product.u_stars} onChange={e => handleChange(e, "u_stars", index)}/> </td>
-                        <td> <input defaultValue={product.u_active} onChange={e => handleChange(e, "u_active", index)}/> </td>
-                        <td> <input defaultValue={product.u_nb_of_sell} onChange={e => handleChange(e, "u_nb_of_sell", index)}/> </td>
-                        <td> <input defaultValue={product.u_qty} onChange={e => handleChange(e, "u_qty", index)}/> </td> 
+                        <td> <input defaultValue={product.u_active} type="checkbox" onChange={e => handleChange(e, "u_active", index)}/> </td>
+                        <td> <input defaultValue={product.u_nb_of_sell} onChange={e => handleChange(e, "u_nb_of_sell", index)} readOnly={true}/> </td>
+                        <td> <input defaultValue={product.u_qty} onChange={e => handleChange(e, "u_qty", index)} readOnly={true}/> </td> 
                     </tr>
                 })}
 
@@ -89,9 +88,11 @@ export default function ManagementProducts() {
 
             </table>
             
-            <button onClick={addProduct}>Add</button>
-            <button>Update</button>
-            <button>Delete</button>
+            <div className="btn_container">
+                <button onClick={addProduct}>Add product</button>
+                <button >Save</button>
+            </div>
+           
 
         </div>
 
