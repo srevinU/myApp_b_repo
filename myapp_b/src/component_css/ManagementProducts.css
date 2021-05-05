@@ -38,6 +38,24 @@
     padding: 10px;
 }
 
+tbody .td_logo {
+    background-color: white;
+}
+
+tbody .td_logo .logos {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    color: rgba(105, 107, 107);
+}
+
+tbody .td_logo .logos:hover {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    color: rgb(33, 34, 34);
+}
+
 .table_products input {
     text-align: center;
     padding: 10px;
@@ -49,6 +67,13 @@
 .table_products input[type="checkbox"] {
     height: 15px;
     width: 15px;
+  }
+
+.table_products button {
+    height: 20px;
+    width: 20px;
+    border-radius: 25px;
+    border: none;
   }
 
 /* .table_products input[type="file"] {

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import "../component_css/ManagementProducts.css";
+import { RiDeleteBinLine } from 'react-icons/ri';
+
 
 export default function ManagementProducts() {
 
     const [products, setProducts] = useState([]);
+    
     useEffect(() => {
         getProduct();
     }, []);
@@ -19,13 +22,14 @@ export default function ManagementProducts() {
             setProducts(data);
           });}
 
-    function handleChange(e, field, index) {
-        products[index][field] = e.target.value;
+    function handleChange(event, field, index) {
+        products[index][field] = event.target.value;
         setProducts(products);
     }
 
     function addProduct() {
-        products.push({
+    
+        setProducts([...products, {
             "u_type": "Created",
             "u_name": "",
             "u_price": "",
@@ -35,11 +39,17 @@ export default function ManagementProducts() {
             "u_active": "",
             "u_nb_of_sell": "",
             "u_qty": "",
-            "sys_action": "create"
+            "sys_action": "created"
+        }]);
+ 
+    }
 
-        });
-        setProducts(products);
-        // console.table(products); working fine, data added but not displayed in DOM
+    function deleteProduct(index) {
+
+        let newProducts = [...products];
+        newProducts[index].sys_action = "deleted";
+        setProducts(newProducts);
+
     }
 
     return (
@@ -68,20 +78,22 @@ export default function ManagementProducts() {
                 <tbody>
 
                 {products.map((product, index) => {
-                    console.log(product.u_type + " to display");
-                    return <tr key={index}> 
 
-                        <td> <input defaultValue={product.u_id} onChange={e => handleChange(e, "u_id", index)} readOnly={true}/> </td> 
-                        <td> <input defaultValue={product.u_type} onChange={e => handleChange(e, "u_type", index)}/> </td> 
-                        <td> <input defaultValue={product.u_name} onChange={e => handleChange(e, "u_name", index)}/> </td> 
-                        <td> <input defaultValue={product.u_price} onChange={e => handleChange(e, "u_price", index)}/> </td> 
-                        <td> <input defaultValue={product.u_image_url} type="file" onChange={e => handleChange(e, "u_image_url", index)}/> </td>
-                        <td> <input defaultValue={product.u_description} onChange={e => handleChange(e, "u_description", index)}/> </td>
-                        <td> <input defaultValue={product.u_stars} onChange={e => handleChange(e, "u_stars", index)}/> </td>
-                        <td> <input defaultValue={product.u_active} type="checkbox" onChange={e => handleChange(e, "u_active", index)}/> </td>
-                        <td> <input defaultValue={product.u_nb_of_sell} onChange={e => handleChange(e, "u_nb_of_sell", index)} readOnly={true}/> </td>
-                        <td> <input defaultValue={product.u_qty} onChange={e => handleChange(e, "u_qty", index)} readOnly={true}/> </td> 
-                    </tr>
+                    if (!product.sys_action || product.sys_action !== "deleted") {
+                        return <tr key={index}> 
+                            <td> <input defaultValue={product.u_id} onChange={event => handleChange(event, "u_id", index)} readOnly={true}/> </td> 
+                            <td> <input defaultValue={product.u_type} onChange={event => handleChange(event, "u_type", index)}/> </td> 
+                            <td> <input defaultValue={product.u_name} onChange={event => handleChange(event, "u_name", index)}/> </td> 
+                            <td> <input defaultValue={product.u_price} onChange={event => handleChange(event, "u_price", index)}/> </td> 
+                            <td> <input defaultValue={product.u_image_url} type="file" onChange={event => handleChange(event, "u_image_url", index)}/> </td>
+                            <td> <input defaultValue={product.u_description} onChange={event => handleChange(event, "u_description", index)}/> </td>
+                            <td> <input defaultValue={product.u_stars} onChange={event => handleChange(event, "u_stars", index)}/> </td>
+                            <td> <input defaultValue={product.u_active} type="checkbox" onChange={event => handleChange(event, "u_active", index)}/> </td>
+                            <td> <input defaultValue={product.u_nb_of_sell} onChange={event => handleChange(event, "u_nb_of_sell", index)} readOnly={true}/> </td>
+                            <td> <input defaultValue={product.u_qty} onChange={event => handleChange(event, "u_qty", index)} readOnly={true}/> </td> 
+                            <td className="td_logo"> <RiDeleteBinLine onClick={() => deleteProduct(index)} className="logos"/> </td>
+                        </tr>
+                    }
                 })}
 
                 </tbody>

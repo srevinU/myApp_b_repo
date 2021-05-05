@@ -4,6 +4,7 @@ import { BiSearchAlt, /* BiBasket,*/ BiUserCircle } from 'react-icons/bi';
 import DropDownProfil from "./DropDownProfil";
 import "../component_css/DropDownProfil.css";
 
+
 function Navbar() {
 
   const [logoCliked, setlogoCliked] = useState(false);
