@@ -11,11 +11,11 @@ CREATE TABLE products (
 	u_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
 	u_type VARCHAR(70) DEFAULT 'To be define',
 	u_name VARCHAR(70),
-	u_price NUMERIC NOT NULL DEFAULT 0.00,
+	u_price NUMERIC DEFAULT 0.00,
 	u_image_url VARCHAR(255),
 	u_description VARCHAR(250),
 	u_stars INT,
-	u_active BOOLEAN NOT NULL DEFAULT TRUE,
+	u_active BOOLEAN DEFAULT FALSE,
 	u_nb_of_sell INT,
 	u_qty INT);
 

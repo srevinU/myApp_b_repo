@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import "../component_css/ManagementProducts.css";
 import { RiDeleteBinLine } from 'react-icons/ri';
@@ -18,9 +19,31 @@ export default function ManagementProducts() {
             return response.json();
           })
           .then(data => {
-            console.table(data);
+            // console.table(data);
             setProducts(data);
           });}
+
+    function saveProducts() {
+
+        let productsToSave = products.filter((p) => {return p.sys_action === "created"});
+        console.log(productsToSave);
+
+        productsToSave.forEach((p) => {
+
+            fetch('http://localhost:3001/poduct/post', {
+                method:"POST",
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(p)
+            })
+            .then(response => {
+                // console.log(response);
+                console.log(response.body);
+                return response.json();
+            })
+
+        })
+
+        }
 
     function handleChange(event, field, index) {
         products[index][field] = event.target.value;
@@ -30,15 +53,15 @@ export default function ManagementProducts() {
     function addProduct() {
     
         setProducts([...products, {
-            "u_type": "Created",
+            "u_type": "",
             "u_name": "",
-            "u_price": "",
+            "u_price": 100,
             "u_image_url": null,
             "u_description": "",
             "u_stars": 0,
-            "u_active": "",
-            "u_nb_of_sell": "",
-            "u_qty": "",
+            "u_active": true,
+            "u_nb_of_sell": 0,
+            "u_qty": 0,
             "sys_action": "created"
         }]);
  
@@ -47,9 +70,18 @@ export default function ManagementProducts() {
     function deleteProduct(index) {
 
         let newProducts = [...products];
-        newProducts[index].sys_action = "deleted";
-        setProducts(newProducts);
-
+        let answer;
+        
+        if (newProducts[index].u_id)  {
+            answer = window.confirm("Do you confirm to delete this product " + newProducts[index].u_name + ", Reference " + newProducts[index].u_id + "?")
+        } else {
+            answer = window.confirm("Do you confirm to delete this product ?");
+        }
+        
+        if (answer === true) {
+            newProducts[index].sys_action = "deleted";
+            setProducts(newProducts);
+        }
     }
 
     return (
@@ -78,14 +110,13 @@ export default function ManagementProducts() {
                 <tbody>
 
                 {products.map((product, index) => {
-
                     if (!product.sys_action || product.sys_action !== "deleted") {
                         return <tr key={index}> 
                             <td> <input defaultValue={product.u_id} onChange={event => handleChange(event, "u_id", index)} readOnly={true}/> </td> 
                             <td> <input defaultValue={product.u_type} onChange={event => handleChange(event, "u_type", index)}/> </td> 
                             <td> <input defaultValue={product.u_name} onChange={event => handleChange(event, "u_name", index)}/> </td> 
                             <td> <input defaultValue={product.u_price} onChange={event => handleChange(event, "u_price", index)}/> </td> 
-                            <td> <input defaultValue={product.u_image_url} type="file" onChange={event => handleChange(event, "u_image_url", index)}/> </td>
+                            <td> <input defaultValue={""} type="file" onChange={event => handleChange(event, "u_image_url", index)}/> </td>
                             <td> <input defaultValue={product.u_description} onChange={event => handleChange(event, "u_description", index)}/> </td>
                             <td> <input defaultValue={product.u_stars} onChange={event => handleChange(event, "u_stars", index)}/> </td>
                             <td> <input defaultValue={product.u_active} type="checkbox" onChange={event => handleChange(event, "u_active", index)}/> </td>
@@ -102,7 +133,7 @@ export default function ManagementProducts() {
             
             <div className="btn_container">
                 <button onClick={addProduct}>Add product</button>
-                <button >Save</button>
+                <button onClick={() => saveProducts(products)}>Save</button>
             </div>
            
 

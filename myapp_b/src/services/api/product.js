@@ -16,14 +16,17 @@ product.use(function (req, res, next) {
 // Post
 product.post("/poduct/post", async (req, res) => {
   let result;
-  
   try {
     let param = [
       req.body.u_type,
       req.body.u_name,
       req.body.u_price,
+      req.body.u_image_url,
       req.body.u_description,
-      req.body.u_stars 
+      req.body.u_stars,
+      req.body.u_active,
+      req.body.u_nb_of_sell,
+      req.body.u_qty,
     ]
     result = await pool.query(queries.INSERT, param)
     res.json(result);
