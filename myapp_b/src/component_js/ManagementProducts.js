@@ -15,35 +15,55 @@ export default function ManagementProducts() {
     function getProduct() {
         fetch('http://localhost:3001')
           .then(response => {
-            // console.log(response);
             return response.json();
           })
           .then(data => {
-            // console.table(data);
             setProducts(data);
           });}
 
     function saveProducts() {
 
-        let productsToSave = products.filter((p) => {return p.sys_action === "created"});
+        let productsToSave = products.filter((p) => {
+            return p.sys_action === "created" || p.sys_action === "deleted"
+        });
         console.log(productsToSave);
 
         productsToSave.forEach((p) => {
 
-            fetch('http://localhost:3001/poduct/post', {
-                method:"POST",
-                headers: {"Content-type": "application/json"},
-                body: JSON.stringify(p)
-            })
-            .then(response => {
-                // console.log(response);
-                console.log(response.body);
-                return response.json();
-            })
+            switch (p.sys_action) {
+
+                case "created":
+
+                    fetch('http://localhost:3001/poduct/post', {
+                            method: "POST",
+                            headers: {"Content-type": "application/json"},
+                            body: JSON.stringify(p)
+                        })
+                        .then(response => {
+                            return response.json();
+                        })
+
+                    break;
+
+                case "deleted":
+
+                    fetch('http://localhost:3001/poduct/del', {
+                            method: "DELETE",
+                            headers: {"Content-type": "application/json"},
+                            body: JSON.stringify(p)
+                        })
+                        .then(response => {
+                            return response.json();
+                        })
+                    break;
+
+                default:
+                    break;
+            }
 
         })
 
-        }
+    }
 
     function handleChange(event, field, index) {
         products[index][field] = event.target.value;
@@ -55,7 +75,7 @@ export default function ManagementProducts() {
         setProducts([...products, {
             "u_type": "",
             "u_name": "",
-            "u_price": 100,
+            "u_price": 0,
             "u_image_url": null,
             "u_description": "",
             "u_stars": 0,
@@ -82,6 +102,7 @@ export default function ManagementProducts() {
             newProducts[index].sys_action = "deleted";
             setProducts(newProducts);
         }
+
     }
 
     return (

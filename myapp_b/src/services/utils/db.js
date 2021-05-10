@@ -1,6 +1,5 @@
 const Pool = require('pg').Pool;
 
-
 const pool = new Pool({
   user: 'cedricsegura',
   host: 'localhost',
@@ -8,6 +7,14 @@ const pool = new Pool({
   password: 'Akpg*',
   port: 5432
 })
+
+// const pool = new Pool({
+//   user: process.env.REACT_APP_USER,
+//   host: process.env.REACT_APP_LOCAL_HOST,
+//   database: process.env.REACT_APP_DB_NAME,
+//   password: process.env.REACT_APP_DB_PSW,
+//   port: process.env.REACT_APP_DB_PORT
+// })
 
 
 // const pool = new Pool({

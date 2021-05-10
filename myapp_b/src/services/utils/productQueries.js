@@ -5,7 +5,7 @@ const queries = {
     UPDATE: 'UPDATE ??.?? '+
             'SET field=?, field=?, field=?, field=?,  field=?, field=? '+
             'WHERE field=? AND field=?;',
-    DELETE: 'DELETE FROM ??.?? WHERE field=? AND field=?;'
+    DELETE: 'DELETE FROM products WHERE u_id=$1;'
 }
 
 

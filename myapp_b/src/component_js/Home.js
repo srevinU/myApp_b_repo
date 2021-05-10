@@ -7,6 +7,7 @@ function Home() {
   useEffect(() => {getProduct();}, []);
 
   function getProduct() {
+    console.log(process.env);
     fetch('http://localhost:3001')
       .then(response => {
         console.log(response);
