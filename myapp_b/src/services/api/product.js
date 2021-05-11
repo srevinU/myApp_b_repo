@@ -1,10 +1,10 @@
 const express = require("express");
-const { RiContrastDropLine } = require("react-icons/ri");
 const pool = require("../utils/db.js");
 const queries = require("../utils/productQueries.js");
 const product = express();
-// const cors = require('cors')
 const port = 3001;
+
+// NEED TO FORMAT INT BEFORE INSERT IN DB
 
 // Request Body
 product.use(express.json())
@@ -51,6 +51,32 @@ product.delete("/poduct/del", async (req, res) => {
 
   } catch (err) {
       res.status(500).json({code: 500, message: err.message, error: err});
+  }
+
+})
+
+//Update
+product.put("/poduct/update", async (req, res) => {
+  let result;
+  try {
+    let param = [
+      req.body.u_id,
+      req.body.u_type,
+      req.body.u_name,
+      req.body.u_price,
+      req.body.u_image_url,
+      req.body.u_description,
+      req.body.u_stars,
+      req.body.u_active,
+      req.body.u_nb_of_sell,
+      req.body.u_qty
+    ]
+    result = await pool.query(queries.UPDATE, param);
+    return res.status(200).json({code: 200, message: 'Product Updated', data: result.rows});
+
+  } catch (err) {
+      res.status(500).json({code: 500, message: err.message, error: err});
+      console.log(err.message);
   }
 
 })
