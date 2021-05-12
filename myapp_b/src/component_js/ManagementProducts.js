@@ -18,7 +18,12 @@ export default function ManagementProducts() {
     }, []);
 
     function getProduct() {
-        fetch('http://localhost:3001')
+        fetch(process.env.REACT_APP_API_URL, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json"
+            },
+        })
             .then(response => {
                 return response.json();
             })
@@ -41,12 +46,12 @@ export default function ManagementProducts() {
 
                 case "created":
 
-                    fetch('http://localhost:3001/poduct/post', {
+                    fetch(process.env.REACT_APP_API_URL + '/poduct/post', {
                             method: "POST",
                             headers: {
                                 "Content-type": "application/json"
                             },
-                            body: JSON.stringify(p)
+                            body: JSON.stringify(p),
                         })
                         .then(response => {
                             return response.json();
@@ -56,7 +61,7 @@ export default function ManagementProducts() {
 
                 case "deleted":
 
-                    fetch('http://localhost:3001/poduct/del', {
+                    fetch(process.env.REACT_APP_API_URL + '/poduct/del', {
                             method: "DELETE",
                             headers: {
                                 "Content-type": "application/json"
@@ -70,7 +75,7 @@ export default function ManagementProducts() {
 
                 case "updated":
                         
-                    fetch('http://localhost:3001/poduct/update', {
+                    fetch(process.env.REACT_APP_API_URL + '/poduct/update', {
                             method: "PUT",
                             headers: {
                                 "Content-type": "application/json"

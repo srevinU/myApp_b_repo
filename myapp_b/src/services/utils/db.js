@@ -16,7 +16,6 @@ const pool = new Pool({
 //   port: process.env.REACT_APP_DB_PORT
 // })
 
-
 // const pool = new Pool({
 //   user: 'postgres',
 //   host: 'localhost',

@@ -4,7 +4,7 @@ const queries = require("../utils/productQueries.js");
 const product = express();
 const port = 3001;
 
-// NEED TO FORMAT INT BEFORE INSERT IN DB
+// NEED TO FORMAT INT BEFORE INSERT IN D
 
 // Request Body
 product.use(express.json())
