@@ -1,12 +1,11 @@
 /* eslint-disable array-callback-return */
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import React, {useState, useEffect} from 'react';
 import "../component_css/ManagementProducts.css";
-import {
-    RiDeleteBinLine
-} from 'react-icons/ri';
+import {RiDeleteBinLine} from 'react-icons/ri';
+import "react-data-table-component";
+import DataTable from 'react-data-table-component';
+
+import columns from "../component_json/columnsTable/productsManagementTable.json";
 
 
 export default function ManagementProducts() {
@@ -16,6 +15,7 @@ export default function ManagementProducts() {
     useEffect(() => {
         getProduct();
     }, []);
+    
 
     function getProduct() {
         fetch(process.env.REACT_APP_API_URL, {
@@ -143,6 +143,8 @@ function deleteProduct(index) {
 return (
 
     <div className="management_products">
+
+        {/* <DataTable title="Products" data={products} columns={columns} selectableRows /> */}
 
         <table className="table_products">
 

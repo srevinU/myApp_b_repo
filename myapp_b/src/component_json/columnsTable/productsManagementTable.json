@@ -1,0 +1,48 @@
+[
+    {
+    "name": "Id",
+    "selector": "u_id",
+    "sortable": true
+    },
+    {
+    "name": "Type",
+    "selector": "u_type",
+    "sortable": true
+    },
+    {
+    "name": "Name",
+    "selector": "u_name",
+    "sortable": true,
+    "right": true
+    },
+    {
+    "name": "Image",
+    "selector": "u_image",
+    "sortable": true,
+    "right": true
+    },
+    {
+    "name": "Description",
+    "selector": "u_description",
+    "sortable": true,
+    "right": true
+    },
+    {
+    "name": "Stars",
+    "selector": "u_stars",
+    "sortable": true,
+    "right": true
+    },
+    {
+    "name": "Number of sells",
+    "selector": "u_number_of_sells",
+    "sortable": true,
+    "right": true
+    },
+    {
+    "name": "Quantity",
+    "selector": "u_quantity",
+    "sortable": true,
+    "right": true
+    }
+]
