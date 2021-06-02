@@ -3,7 +3,7 @@ import { queries } from "../DbPg/queries/productQueries";
 import { myPgPoolUtils } from "../DbPg/myPgUtils";
 
 
-class RepoProducts extends Repository {
+class ProductRepo extends Repository {
 
     queries: typeof queries
     constructor (pgDbConnection: myPgPoolUtils) {
@@ -15,7 +15,7 @@ class RepoProducts extends Repository {
 }
 
 
-const objTest = new RepoProducts(new myPgPoolUtils());
+const objTest = new ProductRepo(new myPgPoolUtils());
 
 console.log(objTest.getAllRecords(objTest.queries));
 
@@ -34,6 +34,6 @@ type product = {
 }
 
 export {
-    RepoProducts,
+    ProductRepo,
     product
 }
