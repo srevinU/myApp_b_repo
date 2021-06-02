@@ -22,21 +22,12 @@ class myPgPoolUtils {
   }
 
   async query(sqlQuery:string, param?: Array <string|number|boolean|null|undefined>) {
-
-    this.pool.connect((err, client, release) => {
-      if (err) {
-        return console.error('Error acquiring client', err.stack);
-      }
-      client.query(sqlQuery, param, (err, result) => {
-        release();
-        if (err) {
-          console.error('Error executing query', err.stack);
-          throw err;
-        }
-        console.log("Query executed:", sqlQuery);
-        return result.rows;
-      })
-    })
+    let result: any;
+    const client = await this.pool.connect()
+    result = await client.query(sqlQuery, param);
+    client.release();
+    console.log("Query executed:", sqlQuery);
+    return result.rows;
   }
 
   async disconnection() {

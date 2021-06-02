@@ -1,71 +1,78 @@
 import { myPgPoolUtils } from "../DbPg/myPgUtils";
-import { queries } from "../DbPg/queries/productQueries";
 
-class Repository {
+class Repository {
 
     pgDbConnection: myPgPoolUtils
-    param: Array<string|null|undefined|number|boolean>
+    param: Array < string | null | undefined | number | boolean >
 
-    constructor(pgDbConnection: myPgPoolUtils) {
-        this.pgDbConnection = pgDbConnection
-    }
+        constructor(pgDbConnection: myPgPoolUtils) {
+            this.pgDbConnection = pgDbConnection
+        }
 
-    async getAll() {
+    async getAll(query: object) {
         let results: any;
         try {
-            results = await this.pgDbConnection.query(queries.SELECT_ALL);
-            console.log("getAll():", results);
+            results = await this.pgDbConnection.query(query[0].SELECT_ALL);
+            console.log("getAll()", results);
             return results;
-        } catch(err) {
-            console.error(err);
+        } catch (err) {
+            console.error("getAll()", err);
             throw err;
         }
     }
 
-    async insertNewProduct() {
+    async insertNewProduct(query: object, params: Array < string | number | boolean | null | undefined > ) {
         let results: any;
-        let params:Array<string|number|boolean|null|undefined> = [
-            "For test form test",
-            "For test form test",
-            100,
-            1,
-            "For test form test",
-            4,
-            true,
-            2,
-            3,
-            ]
-            try {
-                results = await this.pgDbConnection.query(queries.INSERT, params);
-                console.log("insertNewProduct():", results);
-                console.log(results);
-            } catch(err) {
-                console.error(err);
-            }
-        
+        try {
+            results = await this.pgDbConnection.query(query[0].INSERT, params);
+            console.log("insertNewProduct()", results);
+            console.log(results);
+        } catch (err) {
+            console.error("insertNewProduct()", err);
+        }
+    }
 
+    async updateProduct(query: object, params: Array < string | number | boolean | null | undefined > ) {
+        let results: any;
+        try {
+            results = await this.pgDbConnection.query(query[0].UPDATE, params);
+            console.log("updateProduct()", results);
+            console.log(results);
+        } catch (err) {
+            console.error("updateProduct()", err);
+        }
+    }
+
+    async deleteProduct(query: object, uuid: Array < string > ) {
+        let results: any;
+        try {
+            results = await this.pgDbConnection.query(query[0].DELETE, uuid);
+            console.log("deleteProduct()", results);
+            console.log(results);
+        } catch (err) {
+            console.error("deleteProduct()", err);
+        }
     }
 
 }
 
-const myRepo = new Repository(new myPgPoolUtils());
-// console.log(myRepo.getAll());
-console.log(myRepo.insertNewProduct());
+// const myRepo = new Repository(new myPgPoolUtils());
+// // console.log(myRepo.getAll());
 
-// let params = [
-//   "u_type2",
-//   "u_name2",
-//   100,
-//   1,
-//   "u_description2",
-//   4,
-//   true,
-//   2,
-//   3,
-// ]
+// const params = [
+//     "For test from test 3",
+//     "For test from test 3",
+//     100,
+//     1,
+//     "For test from test 3",
+//     4,
+//     true,
+//     2,
+//     3,
+//     ]
 
-// myPgUtilsObj.query('SELECT * FROM products');
+// myRepo.insertNewProduct(params);
 
-// // myPgUtilsObj.query(queries.INSERT, params);
-
-// myPgUtilsObj.disconnection();
+export {
+    Repository
+}
