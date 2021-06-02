@@ -17,7 +17,7 @@ class RepoProducts extends Repository {
 
 const objTest = new RepoProducts(new myPgPoolUtils());
 
-console.log(objTest.getAll(objTest.queries));
+console.log(objTest.getAllRecords(objTest.queries));
 
 
 
