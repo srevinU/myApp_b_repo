@@ -9,7 +9,7 @@ class Repository {
             this.pgDbConnection = pgDbConnection
         }
 
-    async getAllRecords(query: object) {
+    async getAllRecords(query: Array<any>) {
         let results: any;
         try {
             results = await this.pgDbConnection.query(query[0].SELECT_ALL);
@@ -21,7 +21,7 @@ class Repository {
         }
     }
 
-    async insertRecord(query: object, params: Array < string | number | boolean | null | undefined > ) {
+    async insertRecord(query: Array<any>, params: Array < string | number | boolean | null | undefined > ) {
         let results: any;
         try {
             results = await this.pgDbConnection.query(query[0].INSERT, params);
@@ -32,7 +32,7 @@ class Repository {
         }
     }
 
-    async updateRecord(query: object, params: Array < string | number | boolean | null | undefined > ) {
+    async updateRecord(query: Array<any>, params: Array < string | number | boolean | null | undefined > ) {
         let results: any;
         try {
             results = await this.pgDbConnection.query(query[0].UPDATE, params);
@@ -43,7 +43,7 @@ class Repository {
         }
     }
 
-    async deleteRecord(query: object, uuid: Array < string > ) {
+    async deleteRecord(query: Array<any>, uuid: Array < string > ) {
         let results: any;
         try {
             results = await this.pgDbConnection.query(query[0].DELETE, uuid);
