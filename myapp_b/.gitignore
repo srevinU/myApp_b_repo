@@ -24,3 +24,5 @@ yarn-error.log*
 
 # Private
 .env
+./tsconfig.json
+
