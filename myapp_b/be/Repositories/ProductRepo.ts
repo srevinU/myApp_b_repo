@@ -14,12 +14,9 @@ class ProductRepo extends Repository {
     
 }
 
-
 const objTest = new ProductRepo(new myPgPoolUtils());
 
 console.log(objTest.getAllRecords(objTest.queries));
-
-
 
 type product = {
     u_type: string, 
